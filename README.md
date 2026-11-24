@@ -41,7 +41,13 @@ Compatibility comes from the official docs plus black-box testing against the of
 
 ## Deploy
 
-You need a free Cloudflare account, [Bun](https://bun.sh) and Node.js (for `wrangler`).
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/tyrannyme/ntfy-orange)
+
+The button copies this repository to your GitHub account, asks for `NTFY_AUTH_USERS` (see below),
+and deploys it with Workers Builds, which redeploys on every push to your copy. Then skip to
+[Access tokens](#access-tokens).
+
+To deploy by hand instead, you need a free Cloudflare account, [Bun](https://bun.sh) and Node.js (for `wrangler`).
 
 ```sh
 git clone https://github.com/tyrannyme/ntfy-orange && cd ntfy-orange
@@ -229,7 +235,7 @@ ones are estimates rather than measurements.
 
 ```sh
 bun install
-cp .dev.vars.example .dev.vars   # local users/tokens
+cp .dev.vars.example .dev.vars   # then set a real password in it
 bun run dev                      # wrangler dev on http://localhost:8787
 
 bun run check                    # TypeScript (src + tests)

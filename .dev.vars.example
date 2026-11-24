@@ -1,8 +1,11 @@
-# Copy to .dev.vars for local development (`bun run dev`).
-# In production, set these with `wrangler secret put` (see README). Never reuse these examples.
+# Users, as a secret: <user>:<password>[:admin|user], comma- or newline-separated.
+# Passwords must be at least 12 characters, so the server rejects this placeholder until you replace it.
+# Generate a password with: openssl rand -base64 24
 #
-# Generate a password:  openssl rand -base64 24
-# Generate a token:     echo "tk_$(LC_ALL=C tr -dc a-z0-9 </dev/urandom | head -c 29)"
-NTFY_AUTH_USERS="phil:change-me-to-a-long-password:admin,ben:another-long-password:user"
-NTFY_AUTH_TOKENS="phil:tk_replacethiswithageneratedtoken"
-NTFY_AUTH_ACCESS="ben:alerts*:rw,*:up*:wo"
+# Local development: copy this file to .dev.vars and set a real password.
+# Production: `bun run wrangler secret put NTFY_AUTH_USERS`, or fill it in on the Deploy to Cloudflare form.
+#
+# Optional, in .dev.vars only:
+#   NTFY_AUTH_TOKENS="phil:tk_<29 letters/digits>"   generate: echo "tk_$(LC_ALL=C tr -dc a-z0-9 </dev/urandom | head -c 29)"
+#   NTFY_AUTH_ACCESS="ben:alerts*:rw,*:up*:wo"
+NTFY_AUTH_USERS="phil:CHANGE-ME:admin"

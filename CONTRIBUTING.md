@@ -22,7 +22,7 @@ You need [Bun](https://bun.sh) and Node.js (for `wrangler`).
 
 ```sh
 bun install
-cp .dev.vars.example .dev.vars
+cp .dev.vars.example .dev.vars   # then set a real password in it
 bun run dev
 ```
 

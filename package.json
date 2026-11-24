@@ -23,5 +23,12 @@
     "oxlint": "^1.95.0",
     "typescript": "^7.0.2",
     "wrangler": "^4.167.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "NTFY_AUTH_USERS": {
+        "description": "Your users, as `<user>:<password>[:admin|user]`, comma-separated. Passwords must be at least 12 characters. Generate one with `openssl rand -base64 24`, for example `phil:<password>:admin`."
+      }
+    }
   }
 }
