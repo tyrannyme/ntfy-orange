@@ -1,0 +1,27 @@
+{
+  "name": "ntfy-orange",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An ntfy-compatible notification server that runs entirely on Cloudflare Workers",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "check": "tsc --noEmit && tsc --noEmit -p test",
+    "lint": "oxlint",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "test": "bun test",
+    "test:unit": "bun test test/unit",
+    "test:e2e": "bun test test/e2e"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.5",
+    "oxfmt": "^0.80.0",
+    "oxlint": "^1.95.0",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.167.0"
+  }
+}

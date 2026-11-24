@@ -1,0 +1,8 @@
+# Copy to .dev.vars for local development (`bun run dev`).
+# In production, set these with `wrangler secret put` (see README). Never reuse these examples.
+#
+# Generate a password:  openssl rand -base64 24
+# Generate a token:     echo "tk_$(LC_ALL=C tr -dc a-z0-9 </dev/urandom | head -c 29)"
+NTFY_AUTH_USERS="phil:change-me-to-a-long-password:admin,ben:another-long-password:user"
+NTFY_AUTH_TOKENS="phil:tk_replacethiswithageneratedtoken"
+NTFY_AUTH_ACCESS="ben:alerts*:rw,*:up*:wo"
