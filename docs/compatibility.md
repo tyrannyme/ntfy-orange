@@ -115,8 +115,8 @@ against the official server (v2.38.1). No ntfy server source code was used.
 
 What was tested on real devices and infrastructure, and what wasn't:
 
-1. **The official Android app: verified on one device.** ntfy 1.25.2 (Play build) on Android 15
-   (moto g84), against the live deployment. The following worked:
+1. **The official Android app: verified on one device.** ntfy 1.25.2 (Play build) on Android 15,
+   against the live deployment. The following worked:
    - adding a user, and the `/<topic>/auth` check when subscribing;
    - titles, tag emojis, priority, and the `view` and `http` action buttons (the `http` button
      POSTed back to the server);

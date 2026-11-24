@@ -1,9 +1,14 @@
 # ntfy-orange
 
-[![Cloudflare Workers](https://shieldcn.dev/badge/runs%20on-Cloudflare%20Workers-orange.svg)](https://developers.cloudflare.com/workers/)
-[![ntfy compatible](https://shieldcn.dev/badge/ntfy-compatible-green.svg)](docs/compatibility.md)
-[![MCP](https://shieldcn.dev/badge/MCP-%2Fv1%2Fmcp-blue.svg?variant=outline)](#ai-agents-mcp)
-[![License: MIT](https://shieldcn.dev/badge/license-MIT-lightgrey.svg?variant=outline)](LICENSE)
+![ntfy-orange](docs/banner.png)
+
+<p align="center">
+  <a href="https://github.com/tyrannyme/ntfy-orange/actions/workflows/ci.yml"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/github/tyrannyme/ntfy-orange/ci.svg?variant=outline&amp;size=sm&amp;font=geist&amp;mode=dark"><img alt="CI status" src="https://shieldcn.dev/github/tyrannyme/ntfy-orange/ci.svg?variant=outline&amp;size=sm&amp;font=geist&amp;mode=light"></picture></a>
+  <a href="https://developers.cloudflare.com/workers/"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/runs%20on-Cloudflare%20Workers-F6821F.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=dark"><img alt="Runs on Cloudflare Workers" src="https://shieldcn.dev/badge/runs%20on-Cloudflare%20Workers-F6821F.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=light"></picture></a>
+  <a href="docs/compatibility.md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/ntfy-compatible-22C55E.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=dark"><img alt="ntfy compatible" src="https://shieldcn.dev/badge/ntfy-compatible-22C55E.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=light"></picture></a>
+  <a href="#ai-agents-mcp"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/MCP-%2Fv1%2Fmcp-3B82F6.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=dark"><img alt="MCP at /v1/mcp" src="https://shieldcn.dev/badge/MCP-%2Fv1%2Fmcp-3B82F6.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=light"></picture></a>
+  <a href="LICENSE"><picture><source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/badge/license-MIT-71717A.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=dark"><img alt="MIT license" src="https://shieldcn.dev/badge/license-MIT-71717A.svg?variant=secondary&amp;size=sm&amp;font=geist&amp;mode=light"></picture></a>
+</p>
 
 A self-hosted [ntfy](https://ntfy.sh)-compatible push notification server that runs entirely on
 Cloudflare Workers: one Worker plus one SQLite-backed Durable Object. You don't need a server,
@@ -39,7 +44,7 @@ Compatibility comes from the official docs plus black-box testing against the of
 You need a free Cloudflare account, [Bun](https://bun.sh) and Node.js (for `wrangler`).
 
 ```sh
-git clone <this repo> ntfy-orange && cd ntfy-orange
+git clone https://github.com/tyrannyme/ntfy-orange && cd ntfy-orange
 bun install
 bun run wrangler login
 ```
@@ -69,6 +74,10 @@ Then try it:
 curl -u phil:PASSWORD -d "Hello from Cloudflare" https://ntfy-orange.<you>.workers.dev/test
 curl -H "Authorization: Bearer tk_..." "https://ntfy-orange.<you>.workers.dev/test/json?poll=1"
 ```
+
+To redeploy on every push to `main`, fork the repository and add `CLOUDFLARE_API_TOKEN` and
+`CLOUDFLARE_ACCOUNT_ID` as repository secrets. The Deploy workflow runs after CI passes. Your users
+and tokens stay in Worker secrets, so a deploy never touches them.
 
 > **Note:** If you skip `NTFY_AUTH_USERS`, everything is denied (unless you open topics with
 > `NTFY_AUTH_ACCESS`). That's intentional: a fresh deployment is never an open relay.
@@ -245,6 +254,11 @@ NTFY_REF_URL=http://127.0.0.1:2586 NTFY_BIN=~/.cache/ntfy-orange-ref/ntfy bun te
 
 - [docs/architecture.md](docs/architecture.md): design, cost model, security, scaling limits
 - [docs/compatibility.md](docs/compatibility.md): feature matrix, trade-offs, what's unverified
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Use the repository's [security policy](./SECURITY.md)
+instead of a public issue for suspected vulnerabilities.
 
 ## License
 

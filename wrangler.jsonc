@@ -8,7 +8,7 @@
     "bindings": [{ "name": "HUB", "class_name": "Hub" }],
   },
   "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Hub"] }],
-  // Non-secret settings. Users and tokens are secrets: see README ("Configure users").
+  // Non-secret settings. Users and tokens are secrets: see README ("Deploy").
   "vars": {
     "NTFY_AUTH_DEFAULT_ACCESS": "deny-all",
     "NTFY_AUTH_ACCESS": "",
